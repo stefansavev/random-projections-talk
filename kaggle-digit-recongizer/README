@@ -1,0 +1,28 @@
+This is the benchmark for the talk "https://berlinbuzzwords.de/session/using-random-projections-make-sense-high-dimensional-big-data"
+
+The benchmark uses the kaggle digit recognizer dataset: "https://www.kaggle.com/c/digit-recognizer"
+and the spotify/annoy tool: https://github.com/spotify/annoy.
+
+A copy of the code will be contained in the repository.
+
+Steps:
+
+1. Login to kaggle.com and download train.csv and test.csv. Put them in a directory called data
+
+2. Get spotify/annoy:
+	git clone https://github.com/spotify/annoy.git
+	cd annoy && git checkout 874a18ec4fa7770356688898055f83e1670498f1 #this is the commit I am using on May 21, 2015
+3. Buid the tool:
+	cd annoy
+	python setup.py build --force
+	python setup.py install --force
+4. Preprocess (change the format)
+	cd scripts
+	./to_flann_format.sh #will write data/train.flann and data/test.flann
+5. Build the index
+	cd scripts && ./build-annoy-index.py
+6. Search for all nearest neighbors in the training dataset
+	cd scripts && search-annoy.py
+7. Evaluate the error rate on top-1 NN with the training set (leave-one-out error rate)
+	cd scripts && eval_annoy.py 
+ 
