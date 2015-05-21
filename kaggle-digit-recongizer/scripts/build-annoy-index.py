@@ -4,7 +4,7 @@ from annoy import AnnoyIndex
 #from annoy import AnnoyIndexEuclidean
 
 num_features = 784
-num_trees = 1
+num_trees = 10
 
 index = AnnoyIndex(num_features) #alternative: AnnoyIndexEuclidean(num_features) 
 

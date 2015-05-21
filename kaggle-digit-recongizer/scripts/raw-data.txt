@@ -1,0 +1,51 @@
+spotify/annoy nn = 100, k = 10, t = 1
+
+Elapsed:  11.1246259212
+
+real	0m24.057s
+user	0m23.613s
+sys	0m0.412s
+
+Accuracy: 0.88829
+
+===============
+spotify/annoy nn = 100, k = 10, t = 2
+
+Elapsed:  21.1008958817
+
+real	0m34.029s
+user	0m33.510s
+sys	0m0.472s
+
+Accuracy: 0.91786
+===================
+spotify/annoy nn = 100, k = 10, t = 5
+
+Elapsed:  63.2789750099
+
+real	1m14.007s
+user	1m13.409s
+sys	0m0.488s
+
+Accuracy: 0.93371
+==================
+spotify/annoy nn = 100, k = 10, t = 10
+
+time ./search-annoy-test.py
+Elapsed:  168.864351988
+
+real	3m1.919s
+user	3m1.031s
+sys	0m0.552s
+
+#second run
+Elapsed:  136.002958059
+
+real	2m27.802s
+user	2m27.065s
+sys	0m0.516s
+
+
+Accuracy: 0.94457
+
+===============
