@@ -45,7 +45,28 @@ real	2m27.802s
 user	2m27.065s
 sys	0m0.516s
 
+=======================
+Elapsed:  166.30302
 
-Accuracy: 0.94457
+real	2m59.360s
+user	2m58.351s
+sys	0m0.620s
+
+
+Accuracy: 0.97086 (after bug fix)
 
 ===============
+After svd with 100 dimensions
+loading index
+reading test data
+reading labels
+searching for nn and predicting
+Elapsed:  15.9211680889
+other: 37, 19, 28, 29, 33
+
+real	0m29.680s
+user	0m29.134s
+sys	0m0.500s
+
+0.97557
+submission: https://www.kaggle.com/submissions/1623481/1623481.zip
