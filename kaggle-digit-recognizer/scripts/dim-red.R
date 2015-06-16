@@ -7,15 +7,16 @@ AtA <- (t(train_matrix) %*% train_matrix)/num_examples
 s <- svd(AtA)
 
 num_sing_vectors = 100
-reduced_data <- train_matrix %*% s$v[, 1:num_sing_vectors]
-dim(reduced_data)
 
-s_corr <- 1/(sqrt(s$d[1:num_sing_vectors] + 10000))
-r <- s$v[, 1:num_sing_vectors] %*% diag(s_corr)
-reduced_data_alt <- train_matrix %*% r
+lam <- 50
+d <- s$d[1:num_sing_vectors]
+weights <- sqrt(d/(d + lam))
 
-write.table(reduced_data_alt, file='../data/train.flann.svd', quote=FALSE, col.names = FALSE, row.names = FALSE, sep = " ")
-#result on training data: 97.5357142857
+r <- s$v[, 1:num_sing_vectors] %*% diag(weights)
+reduced_data <- train_matrix %*% r
+
+write.table(reduced_data, file='../data/train.flann.svd', quote=FALSE, col.names = FALSE, row.names = FALSE, sep = " ")
+#result on training data: 97.5666666667
 
 test_data <- read.csv('../data/test.flann', header = FALSE, sep = " ")
 dim(test_data)
